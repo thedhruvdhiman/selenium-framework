@@ -65,22 +65,4 @@ public class OrderTests extends Base {
 //		cc.clickBackToHomeButton();
 //		Assert.assertEquals(cartPage.verifyCartPageTitle(), input.get("productName"));
 //	}
-
 }
-
-
-
-//HashMap<String, String> map1 = new HashMap<>();
-//map1.put("username", "standard_user");
-//map1.put("password", "secret_sauce");
-//map1.put("", "Sauce Labs Backpack");
-//
-//HashMap<String, String> map2 = new HashMap<>();
-//map2.put("username", "visual_user");
-//map2.put("password", "secret_sauce");
-//map2.put("productName", "Sauce Labs Bike Light");
-//
-//return new Object[][] {
-//	{map1},
-//	{map2}
-//};
