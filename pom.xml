@@ -11,6 +11,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
   </properties>
+
   <dependencyManagement>
     <dependencies>      <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->      <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
       <dependency>
@@ -47,4 +48,69 @@
       <version>5.1.2</version>
     </dependency>
   </dependencies>
+
+
+  <profiles>
+    <profile>
+      <id>Regression</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.5.4</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>testSuites/regression.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
+      <id>Order</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.5.4</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>testSuites/Purchase.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+
+    <profile>
+      <id>ErrorHandling</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>3.5.4</version>
+              <configuration>
+                <suiteXmlFiles>
+                  <suiteXmlFile>testSuites/errorHandling.xml</suiteXmlFile>
+                </suiteXmlFiles>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  </profiles>
+
+
 </project>
