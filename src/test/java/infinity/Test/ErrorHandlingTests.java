@@ -9,20 +9,20 @@ import infinity.pageObjects.CartPage;
 import infinity.pageObjects.InventoryPage;
 import infinity.pageObjects.LoginPage;
 
-public class errorHandling extends Base {
+public class ErrorHandlingTests extends Base {
      
 	final String errorMessage = "Epic sadface: Username and password do not match any user in this service";
 	
 	final String productToAdd = "Sauce Labs Backpack";
 	
 	@Test(groups= {"ErrorHandling"})
-	public void LoginError() throws Exception {
+	public void LoginError() {
 		LoginPage loginPage = PageObjects.loginPage();
 		String value = loginPage.enterIncorrectLoginValuesAndClickLogin("asdfghjkl", "asdfghjkl");
 		AssertJUnit.assertEquals(value, errorMessage);
 	}
 	
-	@Test
+	@Test(groups= {"ErrorHandling"})
 	public void incorrectOrder () {
 		LoginPage loginPage = PageObjects.loginPage();
 		CartPage cartPage = PageObjects.cartPage();

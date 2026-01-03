@@ -6,16 +6,12 @@
 			<include name="Purchase"/>
 		</run>
 	</groups>
-
-  <test thread-count="5" name="Complete order">
+    <listeners>
+        <listener class-name="infinity.Test.Components.IListener"/>
+    </listeners>
+  <test name="Complete order">
     <classes>
       <class name="infinity.Test.Order"/>
-    </classes>
-  </test> <!-- Test -->
-  
-  <test thread-count="5" name="Error Handling">
-    <classes>
-    	<class name="infinity.Test.errorHandling"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

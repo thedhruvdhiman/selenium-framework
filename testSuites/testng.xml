@@ -5,15 +5,15 @@
   <listeners>
     <listener class-name="infinity.Test.Components.IListener"/>
   </listeners>
-  <test thread-count="5" name="Complete order">
+  <test thread-count="5" name="Complete order" parallel="methods">
     <classes>
       <class name="infinity.Test.Order"/>
     </classes>
   </test> <!-- Test -->
   
-  <test thread-count="5" name="Error Handling">
+  <test thread-count="5" name="Error Handling" parallel="methods">
     <classes>
-    	<class name="infinity.Test.errorHandling"/>
+    	<class name="infinity.Test.ErrorHandlingTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

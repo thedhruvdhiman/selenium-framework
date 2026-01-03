@@ -11,33 +11,33 @@ import infinity.pageObjects.LoginPage;
 
 public class PageObjects {
 		
-	static WebDriver driver;
+	static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	
 	public PageObjects(WebDriver driver) {
-		PageObjects.driver = driver;
+		PageObjects.driver.set(driver);
 	}
 	
 	public static LoginPage loginPage() {
-	    return new LoginPage(driver);	
+	    return new LoginPage(driver.get());	
 	}
 	
 	public static CartPage cartPage() {
-		return new CartPage(driver);
+		return new CartPage(driver.get());
 	}
 	
 	public static InventoryPage inventoryPage() {
-		return new InventoryPage(driver);
+		return new InventoryPage(driver.get());
 	}
 	
 	public static CheckoutInformationPage checkoutInformationPage() {
-		return new CheckoutInformationPage(driver);
+		return new CheckoutInformationPage(driver.get());
 	}
 	
 	public static CheckoutOverviewPage checkoutOverviewPage() {
-		return new CheckoutOverviewPage(driver);
+		return new CheckoutOverviewPage(driver.get());
 	}
 	
 	public static CheckoutCompletePage checkoutCompletePage() {
-		return new CheckoutCompletePage(driver);
+		return new CheckoutCompletePage(driver.get());
 	}	
 }

@@ -15,7 +15,7 @@ public class IListener extends Base implements ITestListener{
 
 	ExtentTest test;
 	ExtentReports extent = ExtentReport.generateReport();
-	ThreadLocal <ExtentTest> thread = new ThreadLocal<ExtentTest>();
+	ThreadLocal <ExtentTest> thread = new ThreadLocal<>();
 	
 
 	@Override
@@ -38,7 +38,8 @@ public class IListener extends Base implements ITestListener{
 
         try {
             String path = TakeScreenShot(result.getMethod().getMethodName());
-			thread.get().addScreenCaptureFromPath(path, result.getMethod().getMethodName());
+			System.out.println("path to screenshot file: " + path);
+			thread.get().fail("Test Failed").addScreenCaptureFromPath(result.getMethod().getMethodName() + ".png", result.getMethod().getMethodName());
         } catch (IOException e) {
 			e.fillInStackTrace();
         }

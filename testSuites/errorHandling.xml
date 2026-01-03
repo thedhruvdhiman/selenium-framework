@@ -7,16 +7,12 @@
 			<include name="ErrorHandling"/>
 		</run>
 	</groups>
-
-  <test thread-count="5" name="Complete order">
+    <listeners>
+        <listener class-name="infinity.Test.Components.IListener"/>
+    </listeners>
+  <test name="Error Handling">
     <classes>
-      <class name="infinity.Test.Order"/>
-    </classes>
-  </test> <!-- Test -->
-  
-  <test thread-count="5" name="Error Handling">
-    <classes>
-    	<class name="infinity.Test.errorHandling"/>
+    	<class name="infinity.Test.ErrorHandlingTests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
