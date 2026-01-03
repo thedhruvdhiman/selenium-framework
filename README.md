@@ -50,7 +50,7 @@ mvn test
 You can run specific test suites using the XML files located in the `testSuites` directory:
 
 - **All Tests**:
-  Right-click `testSuites/testng.xml` -> Run As -> TestNG Suite
+  Right-click `testSuites/regression.xml` -> Run As -> TestNG Suite
 
 - **Purchase Tests**:
   Right-click `testSuites/Purchase.xml` -> Run As -> TestNG Suite
