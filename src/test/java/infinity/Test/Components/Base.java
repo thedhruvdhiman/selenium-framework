@@ -5,8 +5,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
+import infinity.data.Data;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -19,6 +22,7 @@ import org.testng.annotations.BeforeMethod;
 
 import infinity.page.PageObjects;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.testng.annotations.DataProvider;
 
 public class Base {
 	
@@ -61,6 +65,13 @@ public class Base {
 	
 	public static WebDriver getDriver() {
 		return driver.get();
+	}
+
+	@DataProvider
+	public Object[][] getData() throws IOException {
+		infinity.data.Data data = new Data();
+		List<HashMap<String, String>> map = data.getJsonDataToMap(System.getProperty("user.dir") + "//src//test//java//infinity//data//purchase-data.json");
+		return new Object[][] {{map.get(0)}, {map.get(1)}};
 	}
 
 	@SuppressWarnings("InstantiationOfUtilityClass")

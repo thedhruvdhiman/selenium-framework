@@ -86,7 +86,7 @@ public class UtilityMethods {
 	
 	/**
 	 * @param locator - By
-	 * @param info - Any information you want to enter in the text box
+	 * @param information - Any information you want to enter in the text box
 	 * */
 	public void clickAndTypeUsingActionClass(By locator, String information) {
 		Actions action = new Actions(driver);

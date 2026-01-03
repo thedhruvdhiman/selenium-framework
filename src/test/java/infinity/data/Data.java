@@ -12,8 +12,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Data {
-	
-	
 	/**
 	 * 
 	 * 
@@ -25,5 +23,4 @@ public class Data {
 		System.out.println("MAP:" +  map);
 		return map;
 	}
-
 }

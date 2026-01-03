@@ -7,7 +7,7 @@
   </listeners>
   <test thread-count="5" name="Complete order" parallel="methods">
     <classes>
-      <class name="infinity.Test.Order"/>
+      <class name="infinity.Test.OrderTests"/>
     </classes>
   </test> <!-- Test -->
   

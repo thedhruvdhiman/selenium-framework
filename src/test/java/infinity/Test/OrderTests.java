@@ -1,15 +1,10 @@
 package infinity.Test;
 
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
-
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import infinity.Test.Components.Base;
-import infinity.data.Data;
 import infinity.page.PageObjects;
 import infinity.pageObjects.CartPage;
 import infinity.pageObjects.CheckoutCompletePage;
@@ -18,7 +13,7 @@ import infinity.pageObjects.CheckoutOverviewPage;
 import infinity.pageObjects.InventoryPage;
 import infinity.pageObjects.LoginPage;
 
-public class Order extends Base {
+public class OrderTests extends Base {
      
 	@Test(dataProvider="getData", groups= {"Purchase"})
 	public void PlaceOrder(HashMap<String, String>input) throws Exception {
@@ -57,7 +52,7 @@ public class Order extends Base {
 	
 	
 	/* Just to understand - If the application is holding some data in server,
-	 * say if we add some product and we want to check if the product is still 
+	 * say if we add some product and we want to check if the product is still
 	 * in the cart after we logout, is the product still in the cart. We can
 	 * Use dependsOnMethods - To run first and than we can run the one which
 	 * is dependent upon. */
@@ -70,17 +65,7 @@ public class Order extends Base {
 //		cc.clickBackToHomeButton();
 //		Assert.assertEquals(cartPage.verifyCartPageTitle(), input.get("productName"));
 //	}
-//	
-	
-	@DataProvider
-	private Object[][] getData() throws IOException {
-		Data data = new Data();
-		List<HashMap<String, String>> map = data.getJsonDataToMap(System.getProperty("user.dir") + "//src//test//java//infinity//data//purchase-data.json");
-		return new Object[][] {{map.get(0)}, {map.get(1)}};
-	}
 
-	
-	
 }
 
 
