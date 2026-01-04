@@ -33,7 +33,8 @@ public class Base {
 		Properties props = new Properties();
 		FileInputStream stream = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//infinity//resources//information.properties");
 		props.load(stream);
-		String browser = props.getProperty("browser");
+		String browserProperty = System.getProperty("browser");
+		String browser = browserProperty != null ? browserProperty : props.getProperty("browser");
 
         switch (browser) {
             case "chrome" -> {
