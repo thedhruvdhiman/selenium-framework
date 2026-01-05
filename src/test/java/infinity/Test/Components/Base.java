@@ -4,6 +4,7 @@ package infinity.Test.Components;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +60,7 @@ public class Base {
 	 * */
 	public static String TakeScreenShot(String testName) throws IOException {
 		File file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String outputFileLocation = System.getProperty("user.dir") + "/report/" + testName +".png";
+		String outputFileLocation = Path.of(System.getProperty("user.dir"), "report", testName +".png").toString();
 		FileUtils.copyFile(file, new File(outputFileLocation));
 		return outputFileLocation;
 	}
@@ -71,7 +72,7 @@ public class Base {
 	@DataProvider
 	public Object[][] getData() throws IOException {
 		infinity.data.Data data = new Data();
-		List<HashMap<String, String>> map = data.getJsonDataToMap(System.getProperty("user.dir") + "//src//test//java//infinity//data//purchase-data.json");
+		List<HashMap<String, String>> map = data.getJsonDataToMap(Path.of((System.getProperty("user.dir")), "src", "test", "java", "infinity", "data", "purchase-data.json").toString());
 		return new Object[][] {{map.get(0)}, {map.get(1)}};
 	}
 

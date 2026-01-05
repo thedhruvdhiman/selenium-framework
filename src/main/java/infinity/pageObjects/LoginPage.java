@@ -8,6 +8,7 @@ package infinity.pageObjects;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -42,7 +43,8 @@ public class LoginPage extends UtilityMethods{
 	
 	public void openURL() throws IOException {
 		Properties props = new Properties();
-		FileInputStream fs = new FileInputStream(System.getProperty("user.dir")+"//src//main//java//infinity//resources//information.properties");
+		String filePath = Paths.get(System.getProperty("user.dir"), "src", "main", "java", "infinity", "resources", "information.properties").toString();
+		FileInputStream fs = new FileInputStream(filePath);
 		props.load(fs);
 		driver.get(props.getProperty("url"));
 	}
